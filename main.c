@@ -174,7 +174,8 @@ static struct wl_buffer *create_buffer(void) {
 	uint32_t foreground = L'\xFF000000';
 	uint32_t background = L'\xFFFFFFFF';
 	const char* text = "Hi, mom";
-	int32_t scale = 1;
+	double font_size = 200;
+	double font_scale = 1.0;
 
 	wmemset(shm_data, background, width * height);
 	
@@ -188,12 +189,12 @@ static struct wl_buffer *create_buffer(void) {
 	set_source_u32(cairo, foreground);
 	cairo_select_font_face(cairo, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
 
-	cairo_set_font_size(cairo, 200 * scale);
+	cairo_set_font_size(cairo, font_size * font_scale);
 	cairo_text_extents_t extents;
 	cairo_text_extents(cairo, text, &extents);
   cairo_move_to(cairo,
-								((width / 2) - (extents.width / 2 + extents.x_bearing)) * scale,
-								((height / 2) - (extents.height / 2 + extents.y_bearing)) * scale);
+								((width / 2) - (extents.width / 2 + extents.x_bearing)) * font_scale,
+								((height / 2) - (extents.height / 2 + extents.y_bearing)) * font_scale);
   cairo_show_text(cairo, text);
 
 	return buffer;
