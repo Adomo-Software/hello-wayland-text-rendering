@@ -1,8 +1,10 @@
-# hello-wayland
+# hello-wayland-text-rendering
 
-A hello world Wayland client, 2018 edition.
+This is a simple client rendering text.
 
-This is a simple client showing a picture. It uses the [xdg-shell] protocol.
+## Screenshot:
+![Screenshot From 2024-11-08 15-30-28](https://github.com/user-attachments/assets/d28c760c-b4f4-4603-8e0c-9653dbaba6d2)
+
 
 ## Dependencies
 
@@ -10,7 +12,7 @@ The following dependencies are required for the Makefile to function properly:
 
 - libwayland
 - wayland-protocols
-- ImageMagick
+- Cairo
 
 ## License
 
